@@ -11,20 +11,13 @@ int main(void)
     PWM_Init();
     while (1)
     {
-        PWM_SetCompare1(100 - 0);
-        OLED_ShowNum(1, 1, 0, 3);
-        Delay_s(3);
-        PWM_SetCompare1(100 - 25);
-        OLED_ShowNum(1, 1, 25, 3);
-        Delay_s(3);
-        PWM_SetCompare1(100 - 50);
-        OLED_ShowNum(1, 1, 50, 3);
-        Delay_s(3);
-        PWM_SetCompare1(100 - 75);
-        OLED_ShowNum(1, 1, 75, 3);
-        Delay_s(3);
-        PWM_SetCompare1(100 - 100);
-        OLED_ShowNum(1, 1, 100, 3);
-        Delay_s(3);
+        for (i = 0; i <= 100; i++) {
+            PWM_SetCompare1(i);
+            Delay_ms(10);
+        }
+        for (i = 0; i <= 100; i++) {
+            PWM_SetCompare1(100 - i);
+            Delay_ms(10);
+        }
     }
 }
