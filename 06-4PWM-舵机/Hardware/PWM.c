@@ -1,5 +1,10 @@
 #include "stm32f10x.h"                  // Device header
 
+/**
+ * @brief  PWM初始化
+ * @param  无
+ * @retval 无
+ */
 void PWM_Init(void)
 {
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
@@ -33,6 +38,11 @@ void PWM_Init(void)
 
 }
 
+/**
+ * @brief  设置比较寄存器
+ * @param  无
+ * @retval 无
+ */
 void PWM_SetCompare2(uint16_t Compare)
 {
     TIM_SetCompare2(TIM2, Compare);
