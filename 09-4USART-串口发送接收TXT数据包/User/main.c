@@ -13,7 +13,7 @@ int main(void)
     Serial_Init();
     
     OLED_ShowString(1, 1, "TxPacket");
-    OLED_ShowString(3, 1, "TxPacket");
+    OLED_ShowString(3, 1, "RxPacket");
     
     while (1)
     {

@@ -2,10 +2,8 @@
 #include <stdarg.h>
 #include "stm32f10x.h"
 
-uint8_t Serial_TxPacket[4];
-uint8_t Serial_RxPacket[4];
+char Serial_RxPacket[100];
 uint8_t Serial_RxFlag;
-
 
 /**
   * @brief  串口初始化
@@ -28,10 +26,10 @@ void Serial_Init(void)
     GPIO_Init(GPIOA, &GPIO_InitStructure);
     
     USART_InitTypeDef USART_InitStruct;
-    USART_InitStruct.USART_BaudRate = 9600;
+    USART_InitStruct.USART_BaudRate = 9600; // 波特率
     USART_InitStruct.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
     USART_InitStruct.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
-    USART_InitStruct.USART_Parity = USART_Parity_No;
+    USART_InitStruct.USART_Parity = USART_Parity_No; // 不校验
     USART_InitStruct.USART_StopBits = USART_StopBits_1;
     USART_InitStruct.USART_WordLength = USART_WordLength_8b;
     USART_Init(USART1, &USART_InitStruct);
@@ -94,7 +92,7 @@ void Serial_SendString(char *String)
   * @brief  串口计算幂函数
   * @param X 底数
   * @param Y 指数
-  * @retval 无
+  * @retval 结果X^Y
   */
 uint32_t Serial_Pow(uint32_t X, uint32_t Y)
 {
@@ -149,31 +147,6 @@ void Serial_Printf(char *format, ...)
 }
 
 /**
-  * @brief  串口发送包数据
-  * @retval 无
-  */
-void Serial_SendPacket(void)
-{
-    Serial_SendByte(0xFF); // 包头定义为0xFF
-    Serial_SendArray(Serial_TxPacket, 4);
-    Serial_SendByte(0xFE); // 包尾定义为0xFE
-}
-
-/**
-  * @brief  获取串口接收标志位
-  * @retval 接收是否完成
-  */
-uint8_t Serial_GetRxFlag(void)
-{
-    if (Serial_RxFlag == 1)
-    {
-        Serial_RxFlag = 0;
-        return 1;
-    }
-    return 0;
-}
-
-/**
   * @brief  USART1中断处理函数
   * @retval 无
   */
@@ -186,7 +159,7 @@ void USART1_IRQHandler(void)
         uint8_t RxData = USART_ReceiveData(USART1);
         if (RxState == 0)  // 等待包头状态
         {
-            if (RxData == 0xFF)
+            if (RxData == '@' && Serial_RxFlag == 0)
             {
                 RxState = 1;
                 pRxPacket = 0;
@@ -194,22 +167,26 @@ void USART1_IRQHandler(void)
         }
         else if (RxState == 1)  // 接收数据状态
         {
-            Serial_RxPacket[pRxPacket++] = RxData;
-            if (pRxPacket >= 4)
+            if (RxData == '\r')
             {
                 RxState = 2;
             }
+            else
+            {
+                Serial_RxPacket[pRxPacket++] = RxData;
+            }
+            
             
         }
         else if (RxState == 2)  // 等待包尾状态
         {
-            if (RxData == 0xFE)
+            if (RxData == '\n')
             {
                 RxState = 0;
+                Serial_RxPacket[pRxPacket] = '\0';
                 Serial_RxFlag = 1;
             }
         }
-        
         USART_ClearITPendingBit(USART1, USART_IT_RXNE);
     }
 }
