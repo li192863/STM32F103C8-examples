@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include "stm32f10x.h"
 
-char Serial_RxPacket[100];
+char Serial_RxPacket[100]; // 串口最大允许接收的字节数
 uint8_t Serial_RxFlag;
 
 /**
@@ -147,7 +147,7 @@ void Serial_Printf(char *format, ...)
 }
 
 /**
-  * @brief  USART1中断处理函数
+  * @brief  USART1中断处理函数 命令格式"@command\r\n"
   * @retval 无
   */
 void USART1_IRQHandler(void)
