@@ -25,5 +25,4 @@
 #define MPU6050_PWR_MGMT_2      0x6C
 #define MPU6050_WHO_AM_I        0x75
 
-
 #endif
