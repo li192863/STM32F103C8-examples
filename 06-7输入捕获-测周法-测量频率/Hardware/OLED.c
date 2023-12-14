@@ -24,7 +24,6 @@ void OLED_I2C_Init(void)
 
 /**
  * @brief  I2C开始
- * @param  无
  * @retval 无
  */
 void OLED_I2C_Start(void)
@@ -37,7 +36,6 @@ void OLED_I2C_Start(void)
 
 /**
  * @brief  I2C停止
- * @param  无
  * @retval 无
  */
 void OLED_I2C_Stop(void)
@@ -108,7 +106,6 @@ void OLED_SetCursor(uint8_t Y, uint8_t X)
 
 /**
  * @brief  OLED清屏
- * @param  无
  * @retval 无
  */
 void OLED_Clear(void)
@@ -265,7 +262,6 @@ void OLED_ShowBinNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Leng
 
 /**
  * @brief  OLED初始化
- * @param  无
  * @retval 无
  */
 void OLED_Init(void)

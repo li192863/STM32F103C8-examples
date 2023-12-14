@@ -1,6 +1,9 @@
 #include "stm32f10x.h"                  // Device header
 
-
+/**
+  * @brief  旋转编码器初始化
+  * @retval 无
+  */
 void Encoder_Init(void)
 {
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
@@ -36,6 +39,10 @@ void Encoder_Init(void)
     TIM_Cmd(TIM3, ENABLE);
 }
 
+/**
+  * @brief  获取计次个数
+  * @retval 计数值
+  */
 int16_t Encoder_Get(void)
 {
     int16_t Temp = TIM_GetCounter(TIM3);

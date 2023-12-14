@@ -3,11 +3,11 @@
         {
             "name": "Target 1",
             "includePath": [
-                "e:\\Projects\\#Projects_STM32F103C8\\00-模板工程\\Start",
-                "e:\\Projects\\#Projects_STM32F103C8\\00-模板工程\\Library",
-                "e:\\Projects\\#Projects_STM32F103C8\\00-模板工程\\System",
-                "e:\\Projects\\#Projects_STM32F103C8\\00-模板工程\\Hardware",
-                "e:\\Projects\\#Projects_STM32F103C8\\00-模板工程\\User",
+                "e:\\Projects\\Projects_STM32F103C8\\00-模板工程\\Start",
+                "e:\\Projects\\Projects_STM32F103C8\\00-模板工程\\Library",
+                "e:\\Projects\\Projects_STM32F103C8\\00-模板工程\\System",
+                "e:\\Projects\\Projects_STM32F103C8\\00-模板工程\\Hardware",
+                "e:\\Projects\\Projects_STM32F103C8\\00-模板工程\\User",
                 "D:\\Keil_v5\\ARM\\ARMCC\\include",
                 "D:\\Keil_v5\\ARM\\ARMCC\\include\\rw"
             ],

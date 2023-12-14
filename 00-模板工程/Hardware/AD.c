@@ -1,6 +1,5 @@
 #include "stm32f10x.h"                  // Device header
 
-
 /**
   * @brief  AD初始化
   * @retval 无

@@ -50,7 +50,7 @@ void Serial_Init(void)
 
 /**
   * @brief  串口发送字节
-  * @param Byte 待发送字节
+  * @param  Byte 待发送字节
   * @retval 无
   */
 void Serial_SendByte(uint8_t Byte)
@@ -61,8 +61,8 @@ void Serial_SendByte(uint8_t Byte)
 
 /**
   * @brief  串口发送数组
-  * @param Array 待发送数组
-  * @param Length 数组长度
+  * @param  Array 待发送数组
+  * @param  Length 数组长度
   * @retval 无
   */
 void Serial_SendArray(uint8_t *Array, uint16_t Length)
@@ -76,7 +76,7 @@ void Serial_SendArray(uint8_t *Array, uint16_t Length)
 
 /**
   * @brief  串口发送字符串
-  * @param String 待发送字符串
+  * @param  String 待发送字符串
   * @retval 无
   */
 void Serial_SendString(char *String)
@@ -90,8 +90,8 @@ void Serial_SendString(char *String)
 
 /**
   * @brief  串口计算幂函数
-  * @param X 底数
-  * @param Y 指数
+  * @param  X 底数
+  * @param  Y 指数
   * @retval 结果X^Y
   */
 uint32_t Serial_Pow(uint32_t X, uint32_t Y)
@@ -106,8 +106,8 @@ uint32_t Serial_Pow(uint32_t X, uint32_t Y)
 
 /**
   * @brief  串口发送数字
-  * @param Number 数字
-  * @param Length 数字长度
+  * @param  Number 数字
+  * @param  Length 数字长度
   * @retval 无
   */
 void Serial_SendNumber(uint32_t Number, uint8_t Length)
@@ -121,8 +121,8 @@ void Serial_SendNumber(uint32_t Number, uint8_t Length)
 
 /**
   * @brief  串口输出字符
-  * @param ch 字符
-  * @param f 文件
+  * @param  ch 字符
+  * @param  f 文件
   * @retval 字符
   */
 int fputc(int ch, FILE *f)
@@ -133,7 +133,7 @@ int fputc(int ch, FILE *f)
 
 /**
   * @brief  串口打印函数
-  * @param format 格式化字符串
+  * @param  format 格式化字符串
   * @retval 无
   */
 void Serial_Printf(char *format, ...)

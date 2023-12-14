@@ -124,12 +124,12 @@ uint8_t MPU6050_GetID(void)
 
 /**
   * @brief  MPU6050读取加速度计和陀螺仪的值
-  * @param AccX 指向AccX的指针
-  * @param AccY 指向AccY的指针
-  * @param AccZ 指向AccZ的指针
-  * @param GyroX 指向gyroX的指针
-  * @param GyroY 指向gyroY的指针
-  * @param GyroZ 指向gyroZ的指针
+  * @param  AccX 指向AccX的指针
+  * @param  AccY 指向AccY的指针
+  * @param  AccZ 指向AccZ的指针
+  * @param  GyroX 指向gyroX的指针
+  * @param  GyroY 指向gyroY的指针
+  * @param  GyroZ 指向gyroZ的指针
   * @retval 无
   */
 void MPU6050_GetData(int16_t *AccX, int16_t *AccY, int16_t *AccZ, int16_t *GyroX, int16_t *GyroY, int16_t *GyroZ)

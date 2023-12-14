@@ -13,7 +13,7 @@ void Servo_Init(void)
 
 /**
   * @brief  设置舵机角度
-  * @param Angle 角度
+  * @param  Angle 角度
   * @retval 无
   */
 void Servo_SetAngle(float Angle)

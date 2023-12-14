@@ -2,6 +2,10 @@
 
 int16_t Encoder_Count;
 
+/**
+  * @brief  旋转编码器初始化
+  * @retval 无
+  */
 void Encoder_Init(void)
 {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
@@ -39,6 +43,10 @@ void Encoder_Init(void)
     NVIC_Init(&NVIC_InitStruct);
 }
 
+/**
+  * @brief  获取计次个数
+  * @retval 计数值
+  */
 int16_t Encoder_Get(void)
 {
     int16_t Temp = Encoder_Count;
@@ -46,6 +54,10 @@ int16_t Encoder_Get(void)
     return Temp;
 }
 
+/**
+  * @brief  外部中断0处理函数
+  * @retval 无
+  */
 void EXTI0_IRQHandler(void)
 {
     if (EXTI_GetITStatus(EXTI_Line0) == SET)
@@ -58,6 +70,10 @@ void EXTI0_IRQHandler(void)
     }
 }
 
+/**
+  * @brief  外部中断1处理函数
+  * @retval 无
+  */
 void EXTI1_IRQHandler(void)
 {
     if (EXTI_GetITStatus(EXTI_Line1) == SET)

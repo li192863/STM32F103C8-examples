@@ -2,7 +2,6 @@
 
 /**
  * @brief  PWM初始化
- * @param  无
  * @retval 无
  */
 void PWM_Init(void)
@@ -39,8 +38,8 @@ void PWM_Init(void)
 }
 
 /**
- * @brief  设置比较寄存器
- * @param  无
+ * @brief  设置比较寄存器的值
+ * @param  Compare 比较寄存器值
  * @retval 无
  */
 void PWM_SetCompare2(uint16_t Compare)

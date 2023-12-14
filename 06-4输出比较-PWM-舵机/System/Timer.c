@@ -1,5 +1,9 @@
 #include "stm32f10x.h"
 
+/**
+  * @brief  初始化定时器
+  * @retval 无
+  */
 void Timer_Init(void)
 {
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
@@ -37,6 +41,10 @@ void Timer_Init(void)
     TIM_Cmd(TIM2, ENABLE);
 }
 
+/**
+  * @brief  获取定时器的当前计数值
+  * @retval 计数值
+  */
 uint16_t Timer_GetCounter(void)
 {
     return TIM_GetCounter(TIM2);

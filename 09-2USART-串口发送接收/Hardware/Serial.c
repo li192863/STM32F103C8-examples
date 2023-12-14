@@ -5,6 +5,10 @@
 uint8_t Serial_RxData;
 uint8_t Serial_RxFlag;
 
+/**
+  * @brief  串口初始化
+  * @retval 无
+  */
 void Serial_Init(void)
 {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
@@ -44,13 +48,23 @@ void Serial_Init(void)
     USART_Cmd(USART1, ENABLE);
 }
 
-
+/**
+  * @brief  串口发送字节
+  * @param  Byte 待发送字节
+  * @retval 无
+  */
 void Serial_SendByte(uint8_t Byte)
 {
     USART_SendData(USART1, Byte);
     while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
 }
 
+/**
+  * @brief  串口发送数组
+  * @param  Array 待发送数组
+  * @param  Length 数组长度
+  * @retval 无
+  */
 void Serial_SendArray(uint8_t *Array, uint16_t Length)
 {
     uint16_t i;
@@ -60,6 +74,11 @@ void Serial_SendArray(uint8_t *Array, uint16_t Length)
     }
 }
 
+/**
+  * @brief  串口发送字符串
+  * @param  String 待发送字符串
+  * @retval 无
+  */
 void Serial_SendString(char *String)
 {
     uint16_t i;
@@ -69,6 +88,12 @@ void Serial_SendString(char *String)
     }
 }
 
+/**
+  * @brief  串口计算幂函数
+  * @param  X 底数
+  * @param  Y 指数
+  * @retval 结果X^Y
+  */
 uint32_t Serial_Pow(uint32_t X, uint32_t Y)
 {
     uint32_t i, Result = 1;
@@ -79,7 +104,12 @@ uint32_t Serial_Pow(uint32_t X, uint32_t Y)
     return Result;
 }
 
-
+/**
+  * @brief  串口发送数字
+  * @param  Number 数字
+  * @param  Length 数字长度
+  * @retval 无
+  */
 void Serial_SendNumber(uint32_t Number, uint8_t Length)
 {
     uint8_t i;
@@ -89,12 +119,23 @@ void Serial_SendNumber(uint32_t Number, uint8_t Length)
     }
 }
 
+/**
+  * @brief  串口输出字符
+  * @param  ch 字符
+  * @param  f 文件
+  * @retval 字符
+  */
 int fputc(int ch, FILE *f)
 {
     Serial_SendByte(ch);
     return ch;
 }
 
+/**
+  * @brief  串口打印函数
+  * @param  format 格式化字符串
+  * @retval 无
+  */
 void Serial_Printf(char *format, ...)
 {
     char String[100];
@@ -105,6 +146,10 @@ void Serial_Printf(char *format, ...)
     Serial_SendString(String);
 }
 
+/**
+  * @brief  获取串口接收标志位
+  * @retval 接收是否完成
+  */
 uint8_t Serial_GetRxFlag(void)
 {
     if (Serial_RxFlag == 1)
@@ -115,11 +160,19 @@ uint8_t Serial_GetRxFlag(void)
     return 0;
 }
 
+/**
+  * @brief  获取接收数据
+  * @retval 接收数据
+  */
 uint8_t Serial_GetRxData(void)
 {
     return Serial_RxData;
 }
 
+/**
+  * @brief  USART1中断处理函数
+  * @retval 无
+  */
 void USART1_IRQHandler(void)
 {
     if (USART_GetITStatus(USART1, USART_IT_RXNE) == SET)

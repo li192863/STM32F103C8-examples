@@ -2,7 +2,6 @@
 
 int16_t Encoder_Count;
 
-
 /**
   * @brief  旋转编码器初始化
   * @retval 无

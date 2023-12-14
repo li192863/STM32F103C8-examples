@@ -2,6 +2,10 @@
 
 uint16_t AD_Value[4];
 
+/**
+  * @brief  AD初始化
+  * @retval 无
+  */
 void AD_Init(void)
 {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);

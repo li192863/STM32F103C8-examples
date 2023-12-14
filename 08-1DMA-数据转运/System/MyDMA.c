@@ -2,6 +2,13 @@
 
 uint16_t MyDMA_Size;
 
+/**
+  * @brief  DMA初始化
+  * @param  AddrA 地址A
+  * @param  AddrB 地址B
+  * @param  Size 大小
+  * @retval 无
+  */
 void MyDMA_Init(uint32_t AddrA, uint32_t AddrB, uint16_t Size)
 {
     MyDMA_Size = Size;
@@ -25,7 +32,10 @@ void MyDMA_Init(uint32_t AddrA, uint32_t AddrB, uint16_t Size)
     DMA_Cmd(DMA1_Channel1, DISABLE);
 }
 
-
+/**
+  * @brief  DMA数据转移
+  * @retval 无
+  */
 void MyDMA_Transfer(void)
 {
     DMA_Cmd(DMA1_Channel1, DISABLE);

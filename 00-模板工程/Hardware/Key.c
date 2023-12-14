@@ -1,7 +1,6 @@
 #include "stm32f10x.h"                  // Device header
 #include "Delay.h"
 
-
 /**
   * @brief  初始化按键
   * @retval 无

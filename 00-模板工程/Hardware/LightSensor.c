@@ -1,6 +1,5 @@
 #include "stm32f10x.h"                  // Device header
 
-
 /**
   * @brief  光敏传感器初始化
   * @retval 无

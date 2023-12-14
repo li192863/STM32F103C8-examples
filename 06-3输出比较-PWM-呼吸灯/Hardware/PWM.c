@@ -39,7 +39,7 @@ void PWM_Init(void)
 
 /**
  * @brief  设置比较寄存器的值
- * @param  比较寄存器值
+ * @param  Compare 比较寄存器值
  * @retval 无
  */
 void PWM_SetCompare1(uint16_t Compare)

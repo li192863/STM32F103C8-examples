@@ -1,8 +1,8 @@
 #include "stm32f10x.h"                  // Device header
 
-
 /**
   * @brief  蜂鸣器初始化
+  * @retval 无
   */
 void Buzzer_Init(void)
 {
@@ -16,6 +16,7 @@ void Buzzer_Init(void)
 
 /**
   * @brief  蜂鸣器翻转
+  * @retval 无
   */
 void Buzzer_Turn(void)
 {
@@ -31,6 +32,7 @@ void Buzzer_Turn(void)
 
 /**
   * @brief  蜂鸣器打开
+  * @retval 无
   */
 void Buzzer_On(void)
 {
@@ -39,6 +41,7 @@ void Buzzer_On(void)
 
 /**
   * @brief  蜂鸣器关闭
+  * @retval 无
   */
 void Buzzer_Off(void)
 {

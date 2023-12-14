@@ -1,6 +1,9 @@
 #include "stm32f10x.h"                  // Device header
 
-
+/**
+  * @brief  LED初始化
+  * @retval 无
+  */
 void LED_Init(void)
 {
     // Enables the High Speed APB (APB2) peripheral clock.

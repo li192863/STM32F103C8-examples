@@ -2,6 +2,7 @@
 
 /**
   * @brief  光敏传感器初始化
+  * @retval 无
   */
 void LightSensor_Init(void)
 {
