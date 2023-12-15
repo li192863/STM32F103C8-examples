@@ -1,6 +1,7 @@
 #include "stm32f10x.h" // Device header
 #include "Delay.h"
 #include "OLED.h"
+#include "MyI2C.h"
 #include "MPU6050.h"
 
 int16_t AX, AY, AZ, GX, GY, GZ;
@@ -8,6 +9,7 @@ int16_t AX, AY, AZ, GX, GY, GZ;
 int main(void)
 {
     OLED_Init();
+    MyI2C_Init();
     MPU6050_Init();
 
     OLED_ShowString(1, 1, "ID: ");
