@@ -69,7 +69,8 @@ uint8_t MPU6050_ReadReg(uint8_t RegAddress)
   * @retval 无
   */
 void MPU6050_Init(void)
-{   
+{
+    MyI2C_Init();
     MPU6050_WirteReg(MPU6050_PWR_MGMT_1, 0x01); // 配置电源管理寄存器1
     MPU6050_WirteReg(MPU6050_PWR_MGMT_2, 0x00); // 配置电源管理寄存器2
     
